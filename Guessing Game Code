@@ -1,0 +1,44 @@
+******************************************************************************
+The computer generates a random number and checks if the user's guess is equal to,
+greater than, or less than the number. if the guessed number is less than or greater than
+the random number chosen by the computer, the computer prompts that either the number is 
+too high or too low and asks the user to try again.
+By: Hiva Hakimzadeh
+date: 03/15/2022
+*******************************************************************************/
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+
+int main()
+{
+   int const MAX=50;
+   int const MIN=1;
+
+   int numGuess,randomNum;
+   cout<<"Welcome to the guessing game! I'll choose a random number between 1 and 50, and you guess what it is.\n";
+   cout<<"I'm thinking of a number! What is it? ";
+   cin>>numGuess;
+   
+   srand(time(0));
+   randomNum =(rand()%MAX)+MIN;
+   
+   while(numGuess!= randomNum)
+   {
+       if(numGuess>randomNum)
+       {
+           cout<<"Too high.Try again. ";
+           cin>>numGuess;
+       }
+       if(numGuess<randomNum)
+       {
+           cout<<"Too low.Try again. ";
+           cin>>numGuess;
+       }
+   }
+   cout<<"You guessed it! Thanks for playing!";
+   
+
+    return 0;
+}
